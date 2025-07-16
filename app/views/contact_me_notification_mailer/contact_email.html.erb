@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Contact Message</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" type="text/css">
+  </head>
+  <body style="background-color: #f6f8fa; margin: 0; padding: 0; font-family: 'Roboto', Arial, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f6f8fa; padding: 40px 0;">
+      <tr>
+        <td align="center">
+          <table width="600" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(44,62,80,0.10); padding: 0; border: 1px solid #e2e8f0;">
+            <!-- Header with logo -->
+            <tr>
+              <td align="center" style="background: #2b6cb0; border-radius: 12px 12px 0 0; padding: 32px 0 16px 0;">
+                <!-- Logo Placeholder -->
+                
+                <h1 style="color: #fff; font-size: 28px; font-weight: 700; margin: 0; letter-spacing: 1px;">New Contact Message</h1>
+              </td>
+            </tr>
+            <!-- Card Content -->
+            <tr>
+              <td style="padding: 32px 40px 24px 40px;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding: 12px 0; color: #718096; font-size: 16px; width: 120px;"><strong>Name:</strong></td>
+                    <td style="padding: 12px 0; color: #2d3748; font-size: 16px;"> <%= @fullName %> </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #718096; font-size: 16px;"><strong>Email:</strong></td>
+                    <td style="padding: 12px 0; color: #2d3748; font-size: 16px;"> <%= @email %> </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; color: #718096; font-size: 16px;"><strong>Subject:</strong></td>
+                    <td style="padding: 12px 0; color: #2d3748; font-size: 16px;"> <%= @subject %> </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 20px 0 12px 0; vertical-align: top; color: #718096; font-size: 16px;"><strong>Message:</strong></td>
+                    <td style="padding: 20px 0 12px 0; color: #2d3748; font-size: 16px; background: #f1f5f9; border-radius: 8px; border-left: 4px solid #2b6cb0; white-space: pre-line; font-style: italic;">
+                      <%= @messageText %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Footer -->
+            <tr>
+              <td align="center" style="padding: 24px 0 32px 0; color: #a0aec0; font-size: 13px; border-radius: 0 0 12px 12px; background: #f6f8fa;">
+                <em>This message was sent via your website contact form.<br>
+                &copy; <%= Time.now.year %> Your Company. All rights reserved.</em>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
