@@ -11,11 +11,13 @@ class ContactMeNotificationController < ApplicationController
             email = message_object["sender"]
             subject = message_object["subject"]
             messageText = message_object["message"]
-            ContactMeNotificationMailer.contact_email(fullName, email, subject, messageText).deliver_now
-            render json: { status: "success", message: "Email sent" }, status: :ok
-        rescue => e
-            Rails.logger.error("Error processing payload: #{e.message}")
-            render json: { status: "error", message: "Error processing payload" }, status: :internal_server_error
-        end
+        rescue JSON::ParserError, ArgumentError => e
+            Rails.logger.error("[ContactMeNotification] Parsing error: #{e.message}")
+            render json: { error: "Invalid request format." }, status: :bad_request
+        
+        rescue StandardError => e
+            Rails.logger.error("[ContactMeNotification] Unexpected error: #{e.message}")
+            render json: { error: "An unexpected error occurred." }, status: :internal_server_error
+        end  
     end
 end
