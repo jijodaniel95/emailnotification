@@ -11,6 +11,7 @@ class ContactMeNotificationController < ApplicationController
             email = message_object["sender"]
             subject = message_object["subject"]
             messageText = message_object["message"]
+            ContactMeNotificationMailer.contact_email(fullName, email, subject, messageText).deliver_now
             render json: {
             status: "success",
             message: "Message sent successfully"
