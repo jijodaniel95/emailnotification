@@ -11,6 +11,10 @@ class ContactMeNotificationController < ApplicationController
             email = message_object["sender"]
             subject = message_object["subject"]
             messageText = message_object["message"]
+            render json: {
+            status: "success",
+            message: "Message sent successfully"
+            }, status: :ok
         rescue JSON::ParserError, ArgumentError => e
             Rails.logger.error("[ContactMeNotification] Parsing error: #{e.message}")
             render json: { error: "Invalid request format." }, status: :bad_request
